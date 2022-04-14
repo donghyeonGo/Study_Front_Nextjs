@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 import Profile from '../../componetns/Profile';
 import css from 'styled-jsx/css';
+import formatDistance from 'date-fns/formatDistance';
 
 const style = css`
     .user-contents-wrapper{
@@ -86,7 +87,11 @@ const name = ({ user, repos }) => {
                             <p className='repository-description'>{repo.description}</p>
                             <p className='repository-language'>
                                 {repo.language}
-                                <span className='repository-updated-at'></span>
+                                <span className='repository-updated-at'>
+                                    {formatDistance(new Date(repo.updated_at), new Date(), {
+                                        addSuffix: true,
+                                    })}
+                                </span>
                             </p>
                         </div>
                     ))}
