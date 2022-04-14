@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 import fetch from 'isomorphic-unfetch';
-import { GoMail } from 'react-icons/go';
+import { GoMail, GoOrganization, GoLink, GoLocation } from 'react-icons/go';
 
 const style = css`
     h2 {
@@ -67,6 +67,14 @@ const name = ({ user }) => {
                 <p className='profile-user-info'>
                     <GoMail size={16} color="#6a737d" />
                     <span className='profile-user-info-text'>{user.email}</span>
+                </p>
+                <p className='profile-user-info'>
+                    <GoLocation size={16} color="#6a737d" />
+                    <span className='profile-user-info-text'>{user.location}</span>
+                </p>
+                <p className='profile-user-info'>
+                    <GoLink size={16} color="#6a737d" />
+                    <span className='profile-user-info-text'>{user.blog}</span>
                 </p>
             </div>
             <style jsx>{style}</style>
