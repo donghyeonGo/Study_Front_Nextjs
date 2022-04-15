@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import css from 'styled-jsx/css';
 import { IoLogoGithub } from 'react-icons/io';
+import { useRouter } from 'next/router';
 
 const HeaderCss = css`
     .header-wrapper{
@@ -32,14 +33,24 @@ const HeaderCss = css`
     }
 `;
 
+
+
 const Header = () => {
     const [username, setUsername] = useState('');
+
+    const router = useRouter();
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        router.push(`/users/${username}`);
+        setUsername("");
+    };
 
     return (
         <div>
             <div className='header-wrapper'>
                 <IoLogoGithub color='white' size={36} />
-                <form className='header-search-form'>
+                <form className='header-search-form' onSubmit={onSubmit}>
                     <input
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
