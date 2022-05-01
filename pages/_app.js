@@ -4,10 +4,6 @@ import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
 
-  useEffect(() => {
-    throw Error();
-  }, []);
-
   return (
     <>
       <Header />
